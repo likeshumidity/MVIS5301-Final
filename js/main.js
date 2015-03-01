@@ -5,9 +5,9 @@ for (var i = 2001; i <= 2012; i += 1) {
 
 var year = 2001;
 
-var margin = {top: 20, right: 0, bottom: 0, left: 100},
-	width = 700 - margin.left - margin.right,
-	height = 450 - margin.top - margin.bottom;
+var margin = {top: 20, right: 25, bottom: 0, left: 130},
+	width = 750 - margin.left - margin.right,
+	height = 650 - margin.top - margin.bottom;
 
 var OECD = d3.select("figure#OECDfigure");
 
@@ -24,8 +24,8 @@ var color = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
 	.scale(x)
 	.orient("top")
-	.ticks(10, "%") // Not sure if this is right since it is 50/50 split NEEDFIX
-	.tickSize(-height); // No clue where this is going to end up... NEEDFIX
+	.ticks(5, "%") // Not sure if this is right since it is 50/50 split NEEDFIX
+	.tickSize(-height); // +/- No clue where this is going to end up... NEEDFIX
 
 var yAxis = d3.svg.axis()
 	.scale(y)
@@ -47,6 +47,10 @@ var buttons = OECD.append("div")
 			return "button";
 		}
 	});
+
+var keys = function(d) {
+	return d.Country;
+}
 
 OECD.append("div")
 	.attr("class", "clearfix");
@@ -74,22 +78,23 @@ var OECDsvg = OECD.append("svg")
 d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150301b.csv',
 	function(error, data) {
 	var popData = data.filter(function(element) { return element.Year == year; } );
-	console.log(popData);
+//	console.log(popData);
 
 	color.domain(d3.keys(popData[0]).filter(function(key) {
 		return (key !== "Country" && key !== "Year");
 	}));
 
-	popData.forEach(function(d) {
-		var y0 = 0;
+	popData.forEach(function(d, i) {
+		var x0 = 0;
 		d.sexes = color.domain().map(function(name) {
 			return {
 				name: name,
-				y0: y0,
-				y1: (y0 += +d[name])
+				x0: x0,
+				x1: (x0 += +d[name]),
+				y: i * y.rangeBand()
 			};
 		});
-		d.total = d.sexes[d.sexes.length - 1].y1;
+		d.total = d.sexes[d.sexes.length - 1].x1;
 		console.log(d);
 	});
 
@@ -102,11 +107,36 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 	// to flip sorting order, reverse b and a on return or just change the sign
 	popData.sort(function(a, b) { return OECDmidpoint(b) - OECDmidpoint(a); });
 
-	x.domain([0, d3.max(popData, function(d) { return d.total; })]);
+//	x.domain([0, d3.max(popData, function(d) { return d.total; })]);
+	x.domain([0, 2]);
 	y.domain(data.map(function(d) { return d.Country; }));
 
 	OECDsvg.append("g")
-		.attr("class", "x axis")
-		.attr("transform", "translate(0," + height + ")")
-		.call(xAxis);
+		.attr("class", "x-axis")
+		.call(xAxis)
+
+	OECDsvg.append("g")
+		.attr("class", "y-axis")
+		.call(yAxis);
+
+/*
+	var countries = OECDsvg.selectAll(".countries")
+		.data(popData, keys)
+		.enter().append("g")
+		.attr("class", "g")
+		.attr("transform", function(d) { return "translate(0," + x(d.sexes.y) + ")"; });
+*/
+
+/*
+	countries.selectAll("rect")
+		.data(function(d) { return d.sexes; })
+		.enter().append("rect")
+		.attr("x", function(d) { return x(d.x1); })
+//		.attr("y", function(d) { console.log(d); return y(d.Country);  })
+		.attr("height", y.rangeBand())
+//		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
+		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
+		.style("fill", function(d) { return color(d.name); });
+*/
+
 });

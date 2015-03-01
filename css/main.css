@@ -142,7 +142,8 @@ figure#OECDfigure div.play-button:hover {
 	width: 35px;
 }
 
-.yearsContainer div.selected {
+.yearsContainer div.selected,
+.yearsContainer div:hover {
 	text-decoration: underline;
 }
 
@@ -157,6 +158,20 @@ figure#OECDfigure div.play-button:hover {
 	text-align: right;
 	font-style: italic;
 	font-weight: 700;
+}
+
+.x-axis path,
+.y-axis path {
+	display: none;
+}
+
+.x-axis line {
+	fill: none;
+	stroke: #FFF;
+}
+
+.y-axis line {
+	display: none;
 }
 
 div > footer > div {
