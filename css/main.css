@@ -95,6 +95,21 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.floatR {
+	float: right;
+}
+
+.floatL {
+	float: left;
+}
+
+header,
+main,
+section,
+figure,
+footer {
+	display: block;
+}
 
 
 
