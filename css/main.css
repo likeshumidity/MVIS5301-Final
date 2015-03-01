@@ -168,6 +168,7 @@ figure#OECDfigure div.play-button:hover {
 .x-axis line {
 	fill: none;
 	stroke: #FFF;
+	stroke-opacity: 0.6;
 }
 
 .y-axis line {

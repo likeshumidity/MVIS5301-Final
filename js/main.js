@@ -15,7 +15,7 @@ var x = d3.scale.linear()
 	.range([0, width]);
 
 var y = d3.scale.ordinal()
-	.rangeBands([0, height], 0.1, 0);
+	.rangeBands([0, height], 0.2, 0);
 
 var color = d3.scale.ordinal()
 //	.range(["#EEE", "#BDF", "#FCF", "#EEE"]);
@@ -24,7 +24,7 @@ var color = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
 	.scale(x)
 	.orient("top")
-	.ticks(5, "%") // Not sure if this is right since it is 50/50 split NEEDFIX
+	.ticks(10, "%") // Not sure if this is right since it is 50/50 split NEEDFIX
 	.tickSize(-height); // +/- No clue where this is going to end up... NEEDFIX
 
 var yAxis = d3.svg.axis()
@@ -49,7 +49,7 @@ var buttons = OECD.append("div")
 	});
 
 var keys = function(d) {
-	return d.CountryKey;
+	return d.Country;
 }
 
 OECD.append("div")
@@ -94,7 +94,6 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 				x1: (x0 += +d[name])
 			};
 		});
-		d.CountryKey = i;
 		d.total = d.sexes[d.sexes.length - 1].x1;
 		console.log(d);
 	});
@@ -111,6 +110,22 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 	x.domain([0, 2]); //NEEDFIX... change to 0, 1 after converted to 100% scale or -100 to 100
 	y.domain(data.map(function(d) { return d.Country; }));
 
+	var countries = OECDsvg.selectAll(".countries")
+		.data(popData, keys)
+		.enter().append("g")
+		.attr("class", "g")
+		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; });
+//		.attr("transform", function(d) { return "translate(0,15)"; });
+
+	countries.selectAll("rect")
+		.data(function(d) { return d.sexes; })
+		.enter().append("rect")
+		.attr("x", function(d) { return x(d.x0); })
+//		.attr("y", function(d) { console.log(d); return y(d.Country);  })
+		.attr("height", y.rangeBand())
+		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
+		.style("fill", function(d) { return color(d.name); });
+
 	OECDsvg.append("g")
 		.attr("class", "x-axis")
 		.call(xAxis)
@@ -118,23 +133,5 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 	OECDsvg.append("g")
 		.attr("class", "y-axis")
 		.call(yAxis);
-
-	var countries = OECDsvg.selectAll(".countries")
-		.data(popData, keys)
-		.enter().append("g")
-		.attr("class", "g")
-		.attr("transform", function(d) { return "translate(0," + x(d.CountryKey) + ")"; });
-
-/*
-	countries.selectAll("rect")
-		.data(function(d) { return d.sexes; })
-		.enter().append("rect")
-		.attr("x", function(d) { return x(d.x1); })
-//		.attr("y", function(d) { console.log(d); return y(d.Country);  })
-		.attr("height", y.rangeBand())
-//		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
-		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
-		.style("fill", function(d) { return color(d.name); });
-*/
 
 });
