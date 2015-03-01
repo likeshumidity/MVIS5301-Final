@@ -84,6 +84,30 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 		return (key !== "Country" && key !== "Year");
 	}));
 
+	var OECDmidpointCompare = function(a, b) {
+		// Must change to 50 - and 50 + after adapting #s to 100% instead of 200% NEEDFIX
+		// can also just use the unemployed value if that happens... NEEDFIX
+		if (+a < +b) {
+			return -1;
+		} else if (+a > +b) {
+			return 1;
+		} else if (+a == +b) {
+			return 0;
+		} else {
+			return NaN;
+		}
+
+		return mp;
+	}
+
+	var OECDmidpoint = function(m, f) {
+		// Must change to 50 - and 50 + after adapting #s to 100% instead of 200% NEEDFIX
+		// can also just use the unemployed value if that happens... NEEDFIX
+		mp = (100 - +m + 100 + +f) / 2.0;
+
+		return mp;
+	}
+
 	popData.forEach(function(d, i) {
 		var x0 = 0;
 		d.sexes = color.domain().map(function(name) {
@@ -94,26 +118,24 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 				x1: (x0 += +d[name])
 			};
 		});
+		d.midpoint = OECDmidpoint(d.Male, d.Female);
 		d.total = d.sexes[d.sexes.length - 1].x1;
 		console.log(d);
 	});
 
-	var OECDmidpoint = function(countryYear) {
-		// Must change to 50 - and 50 + after adapting #s to 100% instead of 200% NEEDFIX
-		// can also just use the unemployed value if that happens... NEEDFIX
-		return (100 - countryYear.Male + 100 + countryYear.Female) / 2.0;
-	}
-
 	// to flip sorting order, reverse b and a on return or just change the sign
-	popData.sort(function(a, b) { return OECDmidpoint(b) - OECDmidpoint(a); });
+//	popData.sort(function(a, b) { return b.order - a.order; });
+//	popData.sort(function(a, b) { return OECDmidpointCompare(a.midpoint, b.midpoint); });
 
 	x.domain([0, 2]); //NEEDFIX... change to 0, 1 after converted to 100% scale or -100 to 100
 	y.domain(data.map(function(d) { return d.Country; }));
 
-	var countries = OECDsvg.selectAll(".countries")
+	var countries = OECDsvg.selectAll("g.countries")
+		.sort(function(a, b) { return OECDmidpointCompare(a.midpoint, b.midpoint); })
 		.data(popData, keys)
 		.enter().append("g")
-		.attr("class", "g")
+		.attr("class", "countries")
+		.attr("id", function(d) { return "c" + d.Country.replace(" ",""); })
 		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; });
 //		.attr("transform", function(d) { return "translate(0,15)"; });
 
