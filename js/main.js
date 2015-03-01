@@ -15,7 +15,7 @@ var x = d3.scale.linear()
 	.range([0, width]);
 
 var y = d3.scale.ordinal()
-	.rangeBands([0, height], 0.2, 0);
+	.rangeRoundBands([0, height], 0.2, 0);
 
 var color = d3.scale.ordinal()
 //	.range(["#EEE", "#BDF", "#FCF", "#EEE"]);
@@ -75,10 +75,9 @@ var OECDsvg = OECD.append("svg")
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150301b.csv',
+d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150301c.csv',
 	function(error, data) {
 	var popData = data.filter(function(element) { return element.Year == year; } );
-//	console.log(popData);
 
 	color.domain(d3.keys(popData[0]).filter(function(key) {
 		return (key !== "Country" && key !== "Year");
@@ -127,7 +126,7 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 //	popData.sort(function(a, b) { return b.order - a.order; });
 //	popData.sort(function(a, b) { return OECDmidpointCompare(a.midpoint, b.midpoint); });
 
-	x.domain([0, 2]); //NEEDFIX... change to 0, 1 after converted to 100% scale or -100 to 100
+	x.domain([0, d3.max(data, function(element) { return element.Year == year; })]);
 	y.domain(data.map(function(d) { return d.Country; }));
 
 	var countries = OECDsvg.selectAll("g.countries")
@@ -139,7 +138,7 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; });
 //		.attr("transform", function(d) { return "translate(0,15)"; });
 
-	countries.selectAll("rect")
+	var bars = countries.selectAll("rect")
 		.data(function(d) { return d.sexes; })
 		.enter().append("rect")
 		.attr("x", function(d) { return x(d.x0); })
@@ -156,4 +155,23 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 		.attr("class", "y-axis")
 		.call(yAxis);
 
+	buttons.on("click", function(d) {
+		update(d);
+	});
+
+	var update = function(updateYear) {
+		d3.select(".selected").classed("selected", false);
+
+		buttons.filter(function(d) { return d == updateYear; })
+			.classed("selected", true);
+
+		popData = data.filter(function(element) { return element.Year == updateYear; });
+
+		bars.data(popData, keys)
+			.transition()
+			.delay(250)
+			.duration(500)
+			.attr("width", function(d) { return x(d.x1) - x(d.x0); })
+			.attr("x", function(d) { return x(d.x0); });
+	};
 });
