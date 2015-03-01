@@ -1,0 +1,456 @@
+Country,Year,Male,Female
+Australia,2000,0.723,0.547
+Austria,2000,0.689,0.49
+Belgium,2000,0.615,0.436
+Canada,2000,0.723,0.594
+Chile,2000,0.733,0.349
+Czech Republic,2000,0.698,0.516
+Denmark,2000,0.711,0.602
+Estonia,2000,0.681,0.521
+Finland,2000,0.705,0.633
+France,2000,0.63,0.491
+Germany,2000,0.666,0.49
+Greece,2000,0.622,0.387
+Hungary,2000,0.611,0.455
+Iceland,2000,0.813,0.713
+Ireland,2000,0.715,0.478
+Israel,2000,0.608,0.482
+Italy,2000,0.622,0.358
+Japan,2000,0.764,0.493
+Korea,2000,0.744,0.488
+Luxembourg,2000,0.661,0.414
+Mexico,2000,0.818,0.389
+Netherlands,2000,0.903,0.817
+New Zealand,2000,0.736,0.574
+Norway,2000,0.78,0.689
+Poland,2000,0.641,0.497
+Portugal,2000,0.698,0.529
+Slovak Republic,2000,0.682,0.526
+Slovenia,2000,0.64,0.512
+Spain,2000,0.671,0.413
+Sweden,2000,0.744,0.675
+Switzerland,2000,0.778,0.576
+Turkey,2000,0.737,0.266
+United Kingdom,2000,0.711,0.549
+United States,2000,0.748,0.599
+OECD - Average,2000,0.707,0.516
+Australia,2001,0.719,0.551
+Austria,2001,0.684,0.495
+Belgium,2001,0.605,0.419
+Canada,2001,0.723,0.597
+Chile,2001,0.725,0.34
+Czech Republic,2001,0.694,0.513
+Denmark,2001,0.709,0.597
+Estonia,2001,0.673,0.522
+Finland,2001,0.707,0.636
+France,2001,0.627,0.489
+Germany,2001,0.663,0.493
+Greece,2001,0.609,0.376
+Hungary,2001,0.609,0.454
+Iceland,2001,0.815,0.711
+Ireland,2001,0.717,0.481
+Israel,2001,0.607,0.484
+Italy,2001,0.62,0.364
+Japan,2001,0.757,0.492
+Korea,2001,0.743,0.493
+Luxembourg,2001,0.657,0.424
+Mexico,2001,0.811,0.38
+Netherlands,2001,0.901,0.815
+New Zealand,2001,0.738,0.583
+Norway,2001,0.777,0.692
+Poland,2001,0.638,0.495
+Portugal,2001,0.702,0.536
+Slovak Republic,2001,0.689,0.53
+Slovenia,2001,0.646,0.509
+Spain,2001,0.665,0.403
+Sweden,2001,0.742,0.682
+Switzerland,2001,0.774,0.589
+Turkey,2001,0.729,0.271
+United Kingdom,2001,0.704,0.549
+United States,2001,0.744,0.598
+OECD - Average,2001,0.704,0.517
+Australia,2002,0.718,0.552
+Austria,2002,0.685,0.505
+Belgium,2002,0.608,0.432
+Canada,2002,0.73,0.609
+Chile,2002,0.718,0.338
+Czech Republic,2002,0.694,0.51
+Denmark,2002,0.711,0.601
+Estonia,2002,0.662,0.515
+Finland,2002,0.702,0.64
+France,2002,0.629,0.491
+Germany,2002,0.655,0.494
+Greece,2002,0.644,0.402
+Hungary,2002,0.608,0.458
+Iceland,2002,0.804,0.705
+Ireland,2002,0.71,0.49
+Israel,2002,0.602,0.484
+Italy,2002,0.62,0.368
+Japan,2002,0.747,0.485
+Korea,2002,0.75,0.498
+Luxembourg,2002,0.665,0.435
+Mexico,2002,0.807,0.387
+Netherlands,2002,0.898,0.812
+New Zealand,2002,0.746,0.59
+Norway,2002,0.774,0.696
+Poland,2002,0.629,0.486
+Portugal,2002,0.705,0.542
+Slovak Republic,2002,0.683,0.526
+Slovenia,2002,0.643,0.51
+Spain,2002,0.669,0.418
+Sweden,2002,0.741,0.682
+Switzerland,2002,0.767,0.593
+Turkey,2002,0.716,0.279
+United Kingdom,2002,0.703,0.554
+United States,2002,0.741,0.596
+OECD - Average,2002,0.703,0.52
+Australia,2003,0.715,0.559
+Austria,2003,0.685,0.511
+Belgium,2003,0.605,0.436
+Canada,2003,0.734,0.619
+Chile,2003,0.715,0.351
+Czech Republic,2003,0.687,0.508
+Denmark,2003,0.714,0.598
+Estonia,2003,0.666,0.521
+Finland,2003,0.701,0.634
+France,2003,0.631,0.505
+Germany,2003,0.648,0.495
+Greece,2003,0.648,0.409
+Hungary,2003,0.614,0.469
+Iceland,2003,0.806,0.717
+Ireland,2003,0.708,0.493
+Israel,2003,0.601,0.491
+Italy,2003,0.623,0.371
+Japan,2003,0.741,0.484
+Korea,2003,0.747,0.49
+Luxembourg,2003,0.651,0.437
+Mexico,2003,0.799,0.381
+Netherlands,2003,0.896,0.809
+New Zealand,2003,0.738,0.594
+Norway,2003,0.766,0.69
+Poland,2003,0.622,0.48
+Portugal,2003,0.7,0.547
+Slovak Republic,2003,0.683,0.529
+Slovenia,2003,0.635,0.501
+Spain,2003,0.674,0.433
+Sweden,2003,0.74,0.681
+Switzerland,2003,0.768,0.595
+Turkey,2003,0.704,0.266
+United Kingdom,2003,0.706,0.553
+United States,2003,0.735,0.595
+OECD - Average,2003,0.7,0.522
+Australia,2004,0.715,0.557
+Austria,2004,0.67,0.508
+Belgium,2004,0.611,0.445
+Canada,2004,0.732,0.619
+Chile,2004,0.707,0.363
+Czech Republic,2004,0.684,0.505
+Denmark,2004,0.716,0.607
+Estonia,2004,0.659,0.522
+Finland,2004,0.696,0.633
+France,2004,0.629,0.507
+Germany,2004,0.648,0.498
+Greece,2004,0.648,0.421
+Hungary,2004,0.612,0.47
+Iceland,2004,0.797,0.698
+Ireland,2004,0.715,0.498
+Israel,2004,0.606,0.496
+Italy,2004,0.613,0.383
+Japan,2004,0.734,0.482
+Korea,2004,0.75,0.499
+Luxembourg,2004,0.649,0.454
+Mexico,2004,0.806,0.404
+Netherlands,2004,0.893,0.807
+New Zealand,2004,0.745,0.599
+Norway,2004,0.764,0.688
+Poland,2004,0.623,0.478
+Portugal,2004,0.697,0.548
+Slovak Republic,2004,0.683,0.525
+Slovenia,2004,0.66,0.525
+Spain,2004,0.681,0.452
+Sweden,2004,0.735,0.679
+Switzerland,2004,0.76,0.591
+Turkey,2004,0.703,0.233
+United Kingdom,2004,0.701,0.557
+United States,2004,0.733,0.592
+OECD - Average,2004,0.699,0.525
+Australia,2005,0.721,0.57
+Austria,2005,0.675,0.518
+Belgium,2005,0.614,0.457
+Canada,2005,0.728,0.616
+Chile,2005,0.704,0.372
+Czech Republic,2005,0.687,0.506
+Denmark,2005,0.711,0.604
+Estonia,2005,0.647,0.528
+Finland,2005,0.695,0.642
+France,2005,0.626,0.507
+Germany,2005,0.663,0.511
+Greece,2005,0.648,0.422
+Hungary,2005,0.617,0.478
+Iceland,2005,0.805,0.71
+Ireland,2005,0.724,0.519
+Israel,2005,0.607,0.5
+Italy,2005,0.61,0.379
+Japan,2005,0.733,0.484
+Korea,2005,0.746,0.501
+Luxembourg,2005,0.651,0.464
+Mexico,2005,0.798,0.406
+Netherlands,2005,0.89,0.805
+New Zealand,2005,0.75,0.609
+Norway,2005,0.762,0.687
+Poland,2005,0.628,0.477
+Portugal,2005,0.694,0.556
+Slovak Republic,2005,0.683,0.513
+Slovenia,2005,0.66,0.528
+Spain,2005,0.688,0.464
+Sweden,2005,0.752,0.688
+Switzerland,2005,0.751,0.593
+Turkey,2005,0.706,0.233
+United Kingdom,2005,0.702,0.559
+United States,2005,0.733,0.593
+OECD - Average,2005,0.7,0.529
+Australia,2006,0.723,0.576
+Austria,2006,0.681,0.528
+Belgium,2006,0.609,0.458
+Canada,2006,0.723,0.618
+Chile,2006,0.714,0.383
+Czech Republic,2006,0.686,0.505
+Denmark,2006,0.711,0.609
+Estonia,2006,0.671,0.547
+Finland,2006,0.702,0.646
+France,2006,0.624,0.508
+Germany,2006,0.664,0.52
+Greece,2006,0.648,0.425
+Hungary,2006,0.624,0.482
+Iceland,2006,0.822,0.715
+Ireland,2006,0.734,0.531
+Israel,2006,0.611,0.504
+Italy,2006,0.61,0.381
+Japan,2006,0.732,0.485
+Korea,2006,0.741,0.503
+Luxembourg,2006,0.604,0.494
+Mexico,2006,0.807,0.417
+Netherlands,2006,0.887,0.802
+New Zealand,2006,0.756,0.614
+Norway,2006,0.756,0.684
+Poland,2006,0.621,0.466
+Portugal,2006,0.697,0.558
+Slovak Republic,2006,0.681,0.507
+Slovenia,2006,0.657,0.532
+Spain,2006,0.691,0.48
+Sweden,2006,0.751,0.69
+Switzerland,2006,0.754,0.598
+Turkey,2006,0.699,0.236
+United Kingdom,2006,0.706,0.566
+United States,2006,0.735,0.594
+OECD - Average,2006,0.701,0.534
+Australia,2007,0.726,0.582
+Austria,2007,0.691,0.535
+Belgium,2007,0.611,0.465
+Canada,2007,0.725,0.625
+Chile,2007,0.714,0.391
+Czech Republic,2007,0.683,0.498
+Denmark,2007,0.709,0.607
+Estonia,2007,0.68,0.54
+Finland,2007,0.703,0.651
+France,2007,0.622,0.511
+Germany,2007,0.664,0.524
+Greece,2007,0.648,0.425
+Hungary,2007,0.625,0.48
+Iceland,2007,0.821,0.717
+Ireland,2007,0.736,0.546
+Israel,2007,0.618,0.511
+Italy,2007,0.607,0.38
+Japan,2007,0.731,0.484
+Korea,2007,0.74,0.502
+Luxembourg,2007,0.613,0.504
+Mexico,2007,0.802,0.424
+Netherlands,2007,0.883,0.8
+New Zealand,2007,0.756,0.618
+Norway,2007,0.76,0.695
+Poland,2007,0.619,0.463
+Portugal,2007,0.695,0.563
+Slovak Republic,2007,0.677,0.505
+Slovenia,2007,0.665,0.534
+Spain,2007,0.693,0.489
+Sweden,2007,0.753,0.694
+Switzerland,2007,0.758,0.599
+Turkey,2007,0.698,0.236
+United Kingdom,2007,0.705,0.562
+United States,2007,0.732,0.593
+OECD - Average,2007,0.702,0.537
+Australia,2008,0.727,0.586
+Austria,2008,0.687,0.541
+Belgium,2008,0.608,0.469
+Canada,2008,0.728,0.627
+Chile,2008,0.718,0.409
+Czech Republic,2008,0.682,0.493
+Denmark,2008,0.712,0.61
+Estonia,2008,0.686,0.548
+Finland,2008,0.71,0.652
+France,2008,0.622,0.513
+Germany,2008,0.664,0.525
+Greece,2008,0.649,0.426
+Hungary,2008,0.62,0.478
+Iceland,2008,0.817,0.709
+Ireland,2008,0.732,0.544
+Israel,2008,0.62,0.513
+Italy,2008,0.606,0.387
+Japan,2008,0.728,0.484
+Korea,2008,0.735,0.5
+Luxembourg,2008,0.641,0.481
+Mexico,2008,0.802,0.43
+Netherlands,2008,0.879,0.798
+New Zealand,2008,0.752,0.621
+Norway,2008,0.771,0.707
+Poland,2008,0.627,0.466
+Portugal,2008,0.694,0.562
+Slovak Republic,2008,0.683,0.511
+Slovenia,2008,0.657,0.536
+Spain,2008,0.695,0.505
+Sweden,2008,0.754,0.692
+Switzerland,2008,0.755,0.613
+Turkey,2008,0.701,0.245
+United Kingdom,2008,0.707,0.565
+United States,2008,0.73,0.595
+OECD - Average,2008,0.703,0.539
+Australia,2009,0.723,0.588
+Austria,2009,0.682,0.548
+Belgium,2009,0.604,0.47
+Canada,2009,0.719,0.625
+Chile,2009,0.71,0.413
+Czech Republic,2009,0.683,0.495
+Denmark,2009,0.702,0.606
+Estonia,2009,0.678,0.55
+Finland,2009,0.694,0.647
+France,2009,0.623,0.517
+Germany,2009,0.663,0.529
+Greece,2009,0.645,0.434
+Hungary,2009,0.618,0.48
+Iceland,2009,0.847,0.771
+Ireland,2009,0.713,0.54
+Israel,2009,0.617,0.523
+Italy,2009,0.599,0.383
+Japan,2009,0.72,0.486
+Korea,2009,0.731,0.492
+Luxembourg,2009,0.666,0.499
+Mexico,2009,0.786,0.422
+Netherlands,2009,0.877,0.799
+New Zealand,2009,0.746,0.622
+Norway,2009,0.756,0.698
+Poland,2009,0.634,0.473
+Portugal,2009,0.683,0.56
+Slovak Republic,2009,0.681,0.503
+Slovenia,2009,0.657,0.535
+Spain,2009,0.686,0.516
+Sweden,2009,0.735,0.676
+Switzerland,2009,0.752,0.616
+Turkey,2009,0.706,0.26
+United Kingdom,2009,0.702,0.565
+United States,2009,0.72,0.592
+OECD - Average,2009,0.699,0.542
+Australia,2010,0.725,0.587
+Austria,2010,0.679,0.546
+Belgium,2010,0.608,0.477
+Canada,2010,0.717,0.624
+Chile,2010,0.721,0.453
+Czech Republic,2010,0.68,0.493
+Denmark,2010,0.691,0.598
+Estonia,2010,0.67,0.553
+Finland,2010,0.694,0.637
+France,2010,0.621,0.518
+Germany,2010,0.662,0.532
+Greece,2010,0.642,0.441
+Hungary,2010,0.621,0.492
+Iceland,2010,0.844,0.776
+Ireland,2010,0.694,0.535
+Israel,2010,0.622,0.527
+Italy,2010,0.594,0.382
+Japan,2010,0.716,0.498
+Korea,2010,0.73,0.495
+Luxembourg,2010,0.658,0.498
+Mexico,2010,0.794,0.432
+Netherlands,2010,0.876,0.799
+New Zealand,2010,0.744,0.621
+Norway,2010,0.75,0.687
+Poland,2010,0.641,0.482
+Portugal,2010,0.679,0.563
+Slovak Republic,2010,0.685,0.518
+Slovenia,2010,0.656,0.531
+Spain,2010,0.681,0.523
+Sweden,2010,0.739,0.673
+Switzerland,2010,0.752,0.608
+Turkey,2010,0.708,0.276
+United Kingdom,2010,0.696,0.566
+United States,2010,0.712,0.586
+OECD - Average,2010,0.697,0.545
+Australia,2011,0.723,0.59
+Austria,2011,0.68,0.548
+Belgium,2011,0.597,0.47
+Canada,2011,0.715,0.623
+Chile,2011,0.727,0.474
+Czech Republic,2011,0.676,0.495
+Denmark,2011,0.684,0.596
+Estonia,2011,0.682,0.561
+Finland,2011,0.697,0.636
+France,2011,0.618,0.517
+Germany,2011,0.666,0.541
+Greece,2011,0.629,0.439
+Hungary,2011,0.627,0.494
+Iceland,2011,0.837,0.77
+Ireland,2011,0.684,0.533
+Israel,2011,0.623,0.526
+Italy,2011,0.591,0.385
+Japan,2011,0.711,0.483
+Korea,2011,0.731,0.497
+Luxembourg,2011,0.65,0.503
+Mexico,2011,0.784,0.427
+Netherlands,2011,0.874,0.799
+New Zealand,2011,0.746,0.625
+Norway,2011,0.741,0.687
+Poland,2011,0.645,0.484
+Portugal,2011,0.68,0.552
+Slovak Republic,2011,0.683,0.504
+Slovenia,2011,0.641,0.523
+Spain,2011,0.674,0.529
+Sweden,2011,0.739,0.68
+Switzerland,2011,0.755,0.608
+Turkey,2011,0.717,0.288
+United Kingdom,2011,0.697,0.567
+United States,2011,0.705,0.581
+OECD - Average,2011,0.695,0.545
+Australia,2012,0.719,0.588
+Austria,2012,0.677,0.546
+Belgium,2012,0.594,0.469
+Canada,2012,0.712,0.616
+Chile,2012,0.746,0.49
+Czech Republic,2012,0.678,0.501
+Denmark,2012,0.675,0.591
+Estonia,2012,0.687,0.56
+Finland,2012,0.643,0.56
+France,2012,0.618,0.509
+Germany,2012,0.664,0.535
+Greece,2012,0.626,0.442
+Hungary,2012,0.599,0.447
+Iceland,2012,0.773,0.706
+Ireland,2012,0.679,0.527
+Israel,2012,0.695,0.581
+Italy,2012,0.594,0.527
+Japan,2012,0.704,0.481
+Korea,2012,0.72,0.499
+Luxembourg,2012,0.649,0.499
+Mexico,2012,0.8,0.45
+Netherlands,2012,0.873,0.799
+New Zealand,2012,0.739,0.621
+Norway,2012,0.695,0.615
+Poland,2012,0.648,0.489
+Portugal,2012,0.672,0.554
+Slovak Republic,2012,0.687,0.51
+Slovenia,2012,0.635,0.523
+Spain,2012,0.665,0.526
+Sweden,2012,0.681,0.602
+Switzerland,2012,0.753,0.612
+Turkey,2012,0.708,0.294
+United Kingdom,2012,0.688,0.557
+United States,2012,0.693,0.568
+OECD - Average,2012,0.688,0.541
