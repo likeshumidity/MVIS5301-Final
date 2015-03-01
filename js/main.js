@@ -15,7 +15,7 @@ var x = d3.scale.linear()
 	.range([0, width]);
 
 var y = d3.scale.ordinal()
-	.rangeBands([0, height], 0.2, 0);
+	.rangeBands([0, height], 0.1, 0);
 
 var color = d3.scale.ordinal()
 //	.range(["#EEE", "#BDF", "#FCF", "#EEE"]);
@@ -49,7 +49,7 @@ var buttons = OECD.append("div")
 	});
 
 var keys = function(d) {
-	return d.Country;
+	return d.CountryKey;
 }
 
 OECD.append("div")
@@ -87,13 +87,14 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 	popData.forEach(function(d, i) {
 		var x0 = 0;
 		d.sexes = color.domain().map(function(name) {
+			console.log(i);
 			return {
 				name: name,
 				x0: x0,
-				x1: (x0 += +d[name]),
-				y: i * y.rangeBand()
+				x1: (x0 += +d[name])
 			};
 		});
+		d.CountryKey = i;
 		d.total = d.sexes[d.sexes.length - 1].x1;
 		console.log(d);
 	});
@@ -107,8 +108,7 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 	// to flip sorting order, reverse b and a on return or just change the sign
 	popData.sort(function(a, b) { return OECDmidpoint(b) - OECDmidpoint(a); });
 
-//	x.domain([0, d3.max(popData, function(d) { return d.total; })]);
-	x.domain([0, 2]);
+	x.domain([0, 2]); //NEEDFIX... change to 0, 1 after converted to 100% scale or -100 to 100
 	y.domain(data.map(function(d) { return d.Country; }));
 
 	OECDsvg.append("g")
@@ -119,13 +119,11 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 		.attr("class", "y-axis")
 		.call(yAxis);
 
-/*
 	var countries = OECDsvg.selectAll(".countries")
 		.data(popData, keys)
 		.enter().append("g")
 		.attr("class", "g")
-		.attr("transform", function(d) { return "translate(0," + x(d.sexes.y) + ")"; });
-*/
+		.attr("transform", function(d) { return "translate(0," + x(d.CountryKey) + ")"; });
 
 /*
 	countries.selectAll("rect")
