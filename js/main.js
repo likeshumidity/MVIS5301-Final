@@ -48,7 +48,7 @@ OECD.append("div")
 	.attr("class", "clearfix");
 
 OECD.append("div")
-	.attr("class", "top-label age-label")
+	.attr("class", "top-label year-label")
 	.style("width", margin.left + "px")
 	.append("p")
 	.text("Country");

@@ -111,7 +111,58 @@ footer {
 	display: block;
 }
 
+body {
+	font-family: "adobe-caslon-pro", Georgia, serif;
+	font-weight: 600;
+	font-style: normal;
+}
 
+figure#OECDfigure div.play-button {
+	margin-bottom: 15px;
+	margin-left: 10px;
+	cursor: pointer;
+	color: #AAA;
+	width: 700px;
+}
+
+figure#OECDfigure div.play-button:hover {
+	color: #000;
+}
+
+.yearsContainer {
+	width: 700px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.yearsContainer div.button {
+	float: left;
+	margin-left: 10px;
+	cursor: pointer;
+	width: 35px;
+}
+
+.yearsContainer div.selected {
+	text-decoration: underline;
+}
+
+.top-label {
+	text-transform: uppercase;
+	float: left;
+}
+
+.year-label {
+	width: 90px;
+	padding-right: 10px;
+	text-align: right;
+	font-style: italic;
+	font-weight: 700;
+}
+
+div > footer > div {
+	float: left;
+	margin-left: 100px;
+}
 
 
 
