@@ -81,20 +81,23 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		return (key !== "Country" && key !== "Year");
 	}));
 
-//	var calcPoints 
-	popData.forEach(function(d, i) {
-		var x0 = 0;
-		d.sexes = color.domain().map(function(name) {
-			console.log(i);
-			return {
-				name: name,
-				x0: x0,
-				x1: (x0 += +d[name])
-			};
+	var calcPoints = function(data) {
+		data.forEach(function(d, i) {
+			var x0 = 0;
+			d.sexes = color.domain().map(function(name) {
+				console.log(i);
+				return {
+					name: name,
+					x0: x0,
+					x1: (x0 += +d[name])
+				};
+			});
+			d.total = d.sexes[d.sexes.length - 1].x1;
+			console.log(d);
 		});
-		d.total = d.sexes[d.sexes.length - 1].x1;
-		console.log(d);
-	});
+	};
+
+	calcPoints(popData);
 
 	x.domain([0, 50]);
 	y.domain(popData.map(function(d) { return d.Country; }));
@@ -135,6 +138,8 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 
 		popData = data.filter(function(element) { return element.Year == updateYear; })
 			.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
+
+		calcPoints(popData);
 
 		bars.data(popData)
 			.transition()
