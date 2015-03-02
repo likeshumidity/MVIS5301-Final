@@ -98,7 +98,7 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		data.forEach(function(d, i) {
 			var x0 = 0;
 			d.sexes = color.domain().map(function(name) {
-				console.log(i);
+//				console.log(i);
 				return {
 					name: name,
 					x0: x0,
@@ -106,7 +106,7 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 				};
 			});
 			d.total = d.sexes[d.sexes.length - 1].x1;
-			console.log(d);
+//			console.log(d);
 		});
 	};
 

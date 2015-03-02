@@ -150,7 +150,9 @@ figure#OECDfigure div.play-button:hover {
 .top-label {
 	text-transform: uppercase;
 	float: left;
-	margin-left: 280px;
+	font-family: "fire-sans", Helvetica, Arial, sans-serif;
+	font-size: 14pt;
+	font-weight: 300;
 }
 
 .year-label {
@@ -196,19 +198,63 @@ div > footer > div {
 
 .lblue {
 	background-color: rgb(187, 221, 255);
+	padding: 1px 4px 1px 4px;
 }
 
 .lpink {
 	background-color: rgb(255, 204, 255);
+	padding: 1px 4px 1px 4px;
 }
 
+svg {
+}
 
+header h1 {
+	font-family: "fire-sans", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	text-align: center;
+	text-transform: uppercase;
+}
 
+header h2 {
+	text-align: center;
+}
 
+body > div.section {
+	max-width: 800px;
+	min-width: 400px;
+	margin: 0px auto;
+	background-color: #FFF;
+	padding: 40px;
+}
 
+body {
+	background-color: #EEE;
+}
 
+header p.subtitle {
+	font-family: "fire-sans", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 10pt;
+	margin-left: 70px;
+	margin-right: 70px;
+	text-indent: 50px;
+}
 
+div#headerContainer {
+	margin-bottom: 25px;
+	padding-bottom: 5px;
+}
 
+div#mainContainer {
+	padding-top: 25px;
+}
+
+main section#introduction {
+	width: 700px;
+	margin: 0px auto;
+	font-size: 8pt;
+}
 
 
 
