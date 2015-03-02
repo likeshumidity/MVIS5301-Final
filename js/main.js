@@ -1,11 +1,11 @@
 // Fill array with values for years 2001 to 2012
 var years = new Array();
-for (var i = 2001; i <= 2012; i += 1) {
+for (var i = 2000; i <= 2011; i += 1) {
 	years.push(i);
 }
 
 // Set start year
-var year = 2001;
+var year = 2000;
 
 var margin = {top: 20, right: 25, bottom: 0, left: 130},
 	width = 750 - margin.left - margin.right,
@@ -118,11 +118,11 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
 		.style("fill", function(d) { return color(d.name); });
 
-	OECDsvg.append("g")
+	var xAxisCall = OECDsvg.append("g")
 		.attr("class", "x-axis")
 		.call(xAxis)
 
-	OECDsvg.append("g")
+	var yAxisCall = OECDsvg.append("g")
 		.attr("class", "y-axis")
 		.call(yAxis);
 
@@ -141,9 +141,22 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 
 		calcPoints(popData);
 
-		bars.data(popData)
+		y.domain(popData.map(function(d) { return d.Country; }));
+
+		countries.data(popData)
+			.attr("id", function(d) { return "c" + d.Country.replace(" ",""); })
+			.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; });
+
+		bars.data(function(d) { return d.sexes; })
 			.transition()
 			.delay(250)
-			.duration(500);
+			.duration(600)
+			.attr("class", function(d) { return d.name; })
+			.attr("x", function(d) { return x(d.x0); })
+			.attr("height", y.rangeBand())
+			.attr("width", function(d) { return x(d.x1) - x(d.x0); })
+			.style("fill", function(d) { return color(d.name); });
+
+		yAxisCall.transition().delay(250).duration(600).call(yAxis);
 	};
 });
