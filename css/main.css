@@ -150,6 +150,7 @@ figure#OECDfigure div.play-button:hover {
 .top-label {
 	text-transform: uppercase;
 	float: left;
+	margin-left: 280px;
 }
 
 .year-label {
@@ -178,10 +179,14 @@ figure#OECDfigure div.play-button:hover {
 .d3-tip {
 	line-height: 1;
 	font-weight: 700;
-	padding: 12px;
+	padding: 10px 10px 6px 10px;
 	background: rgba(0,0,0, 0.8);
 	color: #fff;
 	border-radius: 2px;
+}
+
+.d3-tip strong {
+	padding: 0px;
 }
 
 div > footer > div {

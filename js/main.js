@@ -7,7 +7,7 @@ for (var i = 2000; i <= 2011; i += 1) {
 // Set start year
 var year = 2000;
 
-var margin = {top: 20, right: 25, bottom: 0, left: 130},
+var margin = {top: 0, right: 25, bottom: 0, left: 130},
 	width = 750 - margin.left - margin.right,
 	height = 650 - margin.top - margin.bottom;
 
@@ -51,7 +51,7 @@ var buttons = OECD.append("div")
 
 var tip = d3.tip()
 	.attr('class', 'd3-tip')
-	.offset([-10, 0])
+	.offset([-2, 0])
 	.html(function(d) {
 		if (d.name == 'fRight' || d.name == 'mLeft') {
 			return '<span style="display: none;"></span>';
