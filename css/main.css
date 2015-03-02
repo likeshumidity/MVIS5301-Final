@@ -175,6 +175,15 @@ figure#OECDfigure div.play-button:hover {
 	display: none;
 }
 
+.d3-tip {
+	line-height: 1;
+	font-weight: 700;
+	padding: 12px;
+	background: rgba(0,0,0, 0.8);
+	color: #fff;
+	border-radius: 2px;
+}
+
 div > footer > div {
 	float: left;
 	margin-left: 100px;

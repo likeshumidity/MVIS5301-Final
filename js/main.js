@@ -53,7 +53,11 @@ var tip = d3.tip()
 	.attr('class', 'd3-tip')
 	.offset([-10, 0])
 	.html(function(d) {
-		return "<strong>" + d.Country + "</strong>";
+		if (d.name == 'fRight' || d.name == 'mLeft') {
+			return '<span style="display: none;"></span>';
+		} else {
+			return "<strong>" + d.name + ": " + (+d.x1 - +d.x0).toFixed(1) + "%</strong>";
+		}
 	});
 
 OECD.append("div")
@@ -62,8 +66,8 @@ OECD.append("div")
 OECD.append("div")
 	.attr("class", "top-label year-label")
 	.style("width", margin.left + "px")
-	.append("p")
-	.text("Country");
+	.append("p");
+//	.text("Country");
 
 OECD.append("div")
 	.attr("class", "top-label")
@@ -116,9 +120,7 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		.enter().append("g")
 		.attr("class", "countries")
 		.attr("id", function(d) { return "c" + d.Country.replace(" ",""); })
-		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; })
-		.on("mouseover", tip.show)
-		.on("mouseout", tip.hide);
+		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; });
 
 	var bars = countries.selectAll("rect")
 		.data(function(d) { return d.sexes; })
@@ -127,11 +129,16 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		.attr("x", function(d) { return x(d.x0); })
 		.attr("height", y.rangeBand())
 		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
-		.style("fill", function(d) { return color(d.name); });
+		.style("fill", function(d) { return color(d.name); })
+		.filter(function(element) { return !(element.name == 'fRight' || element.name == 'mLeft'); })
+		.on("mouseover", tip.show)
+		.on("mouseout", tip.hide);
 
+/*
 	var xAxisCall = OECDsvg.append("g")
 		.attr("class", "x-axis")
 		.call(xAxis)
+*/
 
 	var yAxisCall = OECDsvg.append("g")
 		.attr("class", "y-axis")
