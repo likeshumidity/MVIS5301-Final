@@ -128,7 +128,38 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 
 	buttons.on("click", function(d) {
 		update(d);
+		cyclePause();
 	});
+
+	var playInterval;
+
+	var cyclePause = function() {
+		clearInterval(playInterval);
+		playAll.text("PLAY ALL YEARS");
+		playAll.on("click", function() { cyclePlay(); });
+	};
+
+	cyclePause();
+
+	var cyclePlay = function() {
+		clearInterval(playInterval);
+
+		var i = 0;
+		waitTime = 1200;
+
+		playInterval = setInterval(function () {
+			playAll.text("PAUSE");
+			playAll.on("click", function() { cyclePause(); });
+
+			update(years[i]);
+
+			i++;
+
+			if (i > years.length - 1) {
+				cyclePause();
+			}
+		}, waitTime);
+	}
 
 	var update = function(updateYear) {
 		d3.select("div.yearsContainer > div.selected").classed("selected", false);
