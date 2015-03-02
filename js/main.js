@@ -49,6 +49,13 @@ var buttons = OECD.append("div")
 		}
 	});
 
+var tip = d3.tip()
+	.attr('class', 'd3-tip')
+	.offset([-10, 0])
+	.html(function(d) {
+		return "<strong>" + d.Country + "</strong>";
+	});
+
 OECD.append("div")
 	.attr("class", "clearfix");
 
@@ -71,6 +78,8 @@ var OECDsvg = OECD.append("svg")
 	.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+OECDsvg.call(tip);
 
 d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities_by_Sex_2000-2011b.csv',
 	function(error, data) {
@@ -107,7 +116,9 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		.enter().append("g")
 		.attr("class", "countries")
 		.attr("id", function(d) { return "c" + d.Country.replace(" ",""); })
-		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; });
+		.attr("transform", function(d) { return "translate(0," + y(d.Country) + ")"; })
+		.on("mouseover", tip.show)
+		.on("mouseout", tip.hide);
 
 	var bars = countries.selectAll("rect")
 		.data(function(d) { return d.sexes; })
