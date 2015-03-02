@@ -49,6 +49,18 @@ var buttons = OECD.append("div")
 		}
 	});
 
+var filterAndSort = function(data, yearSelected) {
+	var dataReady = data.filter(function(element) { return element.Year == yearSelected; })
+
+	if (d3.select("div.sortContainer > div.selected").attr("id") == 'byDisparity') {
+		popData.sort(function(a, b) { return (+b.Male / +b.Female) - (+a.Male / +a.Female); });
+	} else {
+		popData.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
+	}
+
+	return dataReady;
+};
+
 OECD.append("div")
 	.attr("class", "clearfix");
 
@@ -74,7 +86,7 @@ var OECDsvg = OECD.append("svg")
 
 d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities_by_Sex_2000-2011b.csv',
 	function(error, data) {
-	var popData = data.filter(function(element) { return element.Year == year; } )
+	var popData = data.filter(function(element) { return element.Year == year; })
 //		.sort(function(a, b) { return (+b.Male / +b.Female) - (+a.Male / +a.Female); });
 		.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
 
@@ -128,11 +140,16 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 	});
 
 	var update = function(updateYear) {
-		d3.select(".selected").classed("selected", false);
+		d3.select("div.yearsContainer > div.selected").classed("selected", false);
 
 		buttons.filter(function(d) { return d == updateYear; })
 			.classed("selected", true);
 
 		popData = data.filter(function(element) { return element.Year == updateYear; });
+
+		bars.data(popData)
+			.transition()
+			.delay(250)
+			.duration(500);
 	};
 });
