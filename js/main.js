@@ -83,7 +83,7 @@ var OECDsvg = OECD.append("svg")
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// OECDsvg.call(tip);
+OECDsvg.call(tip);
 
 d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities_by_Sex_2000-2011b.csv',
 	function(error, data) {
@@ -130,9 +130,11 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		.attr("height", y.rangeBand())
 		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
 		.style("fill", function(d) { return color(d.name); })
-//		.filter(function(element) { return !(element.name == 'fRight' || element.name == 'mLeft'); })
-//		.on("mouseover", tip.show)
-//		.on("mouseout", tip.hide);
+
+
+		bars.filter(function(element) { return !(element.name == 'fRight' || element.name == 'mLeft'); })
+			.on("mouseover", tip.show)
+			.on("mouseout", tip.hide);
 
 /*
 	var xAxisCall = OECDsvg.append("g")
