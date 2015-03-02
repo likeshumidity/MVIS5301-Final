@@ -49,18 +49,6 @@ var buttons = OECD.append("div")
 		}
 	});
 
-var filterAndSort = function(data, yearSelected) {
-	var dataReady = data.filter(function(element) { return element.Year == yearSelected; })
-
-	if (d3.select("div.sortContainer > div.selected").attr("id") == 'byDisparity') {
-		popData.sort(function(a, b) { return (+b.Male / +b.Female) - (+a.Male / +a.Female); });
-	} else {
-		popData.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
-	}
-
-	return dataReady;
-};
-
 OECD.append("div")
 	.attr("class", "clearfix");
 
@@ -87,13 +75,13 @@ var OECDsvg = OECD.append("svg")
 d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities_by_Sex_2000-2011b.csv',
 	function(error, data) {
 	var popData = data.filter(function(element) { return element.Year == year; })
-//		.sort(function(a, b) { return (+b.Male / +b.Female) - (+a.Male / +a.Female); });
 		.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
 
 	color.domain(d3.keys(popData[0]).filter(function(key) {
 		return (key !== "Country" && key !== "Year");
 	}));
 
+//	var calcPoints 
 	popData.forEach(function(d, i) {
 		var x0 = 0;
 		d.sexes = color.domain().map(function(name) {
@@ -145,7 +133,8 @@ d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities
 		buttons.filter(function(d) { return d == updateYear; })
 			.classed("selected", true);
 
-		popData = data.filter(function(element) { return element.Year == updateYear; });
+		popData = data.filter(function(element) { return element.Year == updateYear; })
+			.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
 
 		bars.data(popData)
 			.transition()
