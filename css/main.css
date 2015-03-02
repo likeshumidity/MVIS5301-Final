@@ -194,7 +194,13 @@ div > footer > div {
 	margin-left: 100px;
 }
 
+.lblue {
+	background-color: rgb(187, 221, 255);
+}
 
+.lpink {
+	background-color: rgb(255, 204, 255);
+}
 
 
 
