@@ -1,8 +1,10 @@
+// Fill array with values for years 2001 to 2012
 var years = new Array();
 for (var i = 2001; i <= 2012; i += 1) {
 	years.push(i);
 }
 
+// Set start year
 var year = 2001;
 
 var margin = {top: 20, right: 25, bottom: 0, left: 130},
@@ -18,12 +20,12 @@ var y = d3.scale.ordinal()
 	.rangeRoundBands([0, height], 0.2, 0);
 
 var color = d3.scale.ordinal()
-	.range(["#BDF", "#FCF"]);
+	.range(["#FFF", "#BDF", "#FCF", "#FFF"]);
 
 var xAxis = d3.svg.axis()
 	.scale(x)
 	.orient("top")
-	.ticks(10, "%")
+	.ticks(10)
 	.tickSize(-height);
 
 var yAxis = d3.svg.axis()
@@ -46,10 +48,6 @@ var buttons = OECD.append("div")
 			return "button";
 		}
 	});
-
-var keys = function(d) {
-	return d.Country;
-}
 
 OECD.append("div")
 	.attr("class", "clearfix");
@@ -74,10 +72,11 @@ var OECDsvg = OECD.append("svg")
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150301c.csv',
+d3.csv('data/OECD_Proportion_of_Emloyed_Persons_with_Managerial_Responsibilities_by_Sex_2000-2011b.csv',
 	function(error, data) {
 	var popData = data.filter(function(element) { return element.Year == year; } )
-		.sort(function(a, b) { return +b.Male - +a.Male; });
+//		.sort(function(a, b) { return (+b.Male / +b.Female) - (+a.Male / +a.Female); });
+		.sort(function(a, b) { return (+b.Male + +b.Female) - (+a.Male + +a.Female); });
 
 	color.domain(d3.keys(popData[0]).filter(function(key) {
 		return (key !== "Country" && key !== "Year");
@@ -97,11 +96,11 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 		console.log(d);
 	});
 
-//	x.domain([0, d3.max(data, function(element) { return element.Year == year; })]);
-	y.domain(data.map(function(d) { return keys(d); }));
+	x.domain([0, 50]);
+	y.domain(popData.map(function(d) { return d.Country; }));
 
 	var countries = OECDsvg.selectAll("g.countries")
-		.data(popData, keys)
+		.data(popData)
 		.enter().append("g")
 		.attr("class", "countries")
 		.attr("id", function(d) { return "c" + d.Country.replace(" ",""); })
@@ -110,6 +109,7 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 	var bars = countries.selectAll("rect")
 		.data(function(d) { return d.sexes; })
 		.enter().append("rect")
+		.attr("class", function(d) { return d.name; })
 		.attr("x", function(d) { return x(d.x0); })
 		.attr("height", y.rangeBand())
 		.attr("width", function(d) { return x(d.x1) - x(d.x0); })
@@ -134,12 +134,5 @@ d3.csv('data/OECD_Labour_Force_Participation_Rate_by_Sex_2001-2012_Tabular_20150
 			.classed("selected", true);
 
 		popData = data.filter(function(element) { return element.Year == updateYear; });
-
-		bars.data(popData, keys)
-			.transition()
-			.delay(250)
-			.duration(500)
-			.attr("width", function(d) { return x(d.x1) - x(d.x0); })
-			.attr("x", function(d) { return x(d.x0); });
 	};
 });
